@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+  <style>
+     body{cursor:url(http://media.tumblr.com/1831ed2495f38db81288c04f083d8fcb/tumblr_inline_mfn7vdwXjc1qid2nw.png), url(http://media.tumblr.com/1831ed2495f38db81288c04f083d8fcb/tumblr_inline_mfn7vdwXjc1qid2nw.png), auto;}
+     #characterButton h1:hover{
+      color: rgb(72, 24, 114);
+     }
+     *:hover{
+      cursor:url(http://media.tumblr.com/1831ed2495f38db81288c04f083d8fcb/tumblr_inline_mfn7vdwXjc1qid2nw.png), url(http://media.tumblr.com/1831ed2495f38db81288c04f083d8fcb/tumblr_inline_mfn7vdwXjc1qid2nw.png), auto ;
+     }
+    @font-face {
+      font-family: myFont;
+      src: url(Gazebo.otf);
+    }
+    #page {
+      text-align: center;
+      padding: 0;
+      margin-top: 59px;
+    }
+    #voicelines a {
+      color: white;
+    }
+    #characterButton h1, #artwork h1{
+      color: white;
+      font-family: MyFont;
+      font-weight: 500;
+      text-align: right;
+      font-size: 30pt;
+      margin: auto;
+      text-align: center;
+    }
+    #characterButton p, #artwork p{
+      font-family: Quicksand;
+      color: white;
+      font-size: 18pt;
+      line-height: 10pt;
+      text-align: left;
+      letter-spacing: 1px;
+      text-transform: capitalize;
+      margin-left: 40px;
+    }
+    li {
+      list-style-type: none;
+      font-family: Helvetica, sans-serif;
+      font-size: 14pt;
+      display: inline;
+      margin: 10px 30px;
+      letter-spacing: 3px;
+    }
+    a {
+      text-decoration: none;
+      color: black;
+    }
+    p.load {
+      margin-top: 50px;
+      text-align: center;
+    }
+    b{
+      font-family: MyFont;
+      font-weight: 500;
+      text-align: center;
+      font-size: 40pt;
+      color: rgb(20, 20, 122);
+      padding: 20px 120px;
+   
+    }
+    button {
+      padding: 8px 10px 8px 10px;
+      font-family: Helvetica,bold, sans-serif;
+      border-radius: 20px;
+      font-size: 14pt;
+      color: white;
+      border-color: rgba(255, 255, 255, 0);
+      float: right;
+      margin-right: 10px;
+      letter-spacing: 2px;
+    }
+    .b1 {
+      background-color: rgb(133, 87, 198);
+    }
+    .b2 {
+      background-color: rgb(122, 156, 249);
+    }
+
+    #page {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .banner {
+      background-color: rgb(48, 106, 176);
+      margin-top: 20px;
+      border-radius: 50px;
+      display: flex;
+      justify-content: center;
+      height: 300px;
+      width: 900px;
+      background-image: url(b1.jfif);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .box {
+      flex-direction: row;
+      display: flex;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .box2 {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+    }
+    .artwork {
+      background-color: rgb(168, 160, 214);
+      margin-top: 50px;
+      height: 300px;
+      width: 400px;
+      border-radius: 50px;
+      margin-bottom: 20px;
+    }
+    .quest {
+      background-color: rgb(136, 150, 255);
+      height: 100px;
+      width: 500px;
+      border-radius: 50px;
+      margin-bottom: 20px;
+    }
+    .voicelines {
+      background-color: rgb(139, 180, 255);
+      height: 100px;
+      width: 500px;
+      border-radius: 50px;
+    }
+    a:hover {
+      color: blueviolet;
+    }
+    button:hover{
+      cursor: pointer;
+      width: 10%;
+    }
+    nav {
+      margin-bottom: 20px;
+    }
+  </style>
+  <title>Genshin Fandom</title>
+</head>
+<body>
+<nav>
+  <ul>
+    <a href="#"><li>HOME</li></a>
+    <a href="#"><li>MEDIA</li></a>
+    <a href="#"><li>SEARCH</li></a>
+    <b>GENSHIN IMPACT</b>
+    <a href="#"><button class="b1">LOG IN</button></a>
+    <a href="#"><button class="b2">SIGN UP</button></a>
+  </ul>
+</nav>
+<main id="page">
+  <div class="box" id="artworks">
+    <div class="artwork" id="characterButton"> <p class="load">Loading...</p></div>
+    <div class="box2">
+      <div class="quest" id="artwork"></div>
+      <div class="voicelines" id="voicelines"></div>
+    </div>
+  </div>
+  <div class="banner"></div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+  // Function to fetch character data from the API
+  async function fetchCharacterDataById(id) {
+    try {
+        const response = await axios.get(`https://gsi.fly.dev/characters/${id}`);
+        const character = response.data.result;
+        return character;
+    } catch (error) {
+        console.error('Error fetching character data by ID:', error.message);
+        return null;
+    }
+}
+
+// Function to generate a random character ID
+function getRandomCharacterId(maxId) {
+    return Math.floor(Math.random() * maxId) + 1;
+}
+
+// Function to update the button text with a random character name and media
+async function updateCharacterInfo() {
+    // Assuming maxId is the total number of characters available in the API
+    const maxId = 51; // Update this with the actual total number of characters
+    const randomId = getRandomCharacterId(maxId);
+
+    const character = await fetchCharacterDataById(randomId);
+    if (!character) {
+        console.error('Failed to fetch character data.');
+        return;
+    }
+
+    const button = document.getElementById('characterButton');
+    const artworkContainer = document.getElementById('artwork');
+    const voicelinesContainer = document.getElementById('voicelines');
+
+    // Update character button with basic info
+    button.innerHTML = `
+        <h1>${character.name}</h1>
+        <p>${character.voice_actors[0].Japanese}</p>
+        <p>Weapon: ${character.weapon}</p>
+        <p>Rarity: ${character.rarity}</p>
+        <p>Constellation: ${character.constellation}</p>
+    `;
+
+    // Update artwork container with fetched artwork (wiki URL)
+    artworkContainer.innerHTML = `
+    <h1>Birthday: ${character.birthday}</h1>
+    <p>Element: ${character.vision}</p>
+    `;
+
+    // Clear voicelines container
+    voicelinesContainer.innerHTML = `
+        <p source</p>
+        <ul>
+            <li><a  target=”_blank” href="${character.wiki_url}">${character.wiki_url}</a></li>
+        </ul>
+    `; // You can add the logic to fetch and display voicelines here
+}
+
+// Call the function to update character info when the page loads
+updateCharacterInfo();
+
+// Add click event listener to the character button
+document.getElementById('characterButton').addEventListener('click', updateCharacterInfo);
+</script>
+  </body>
+</html>
