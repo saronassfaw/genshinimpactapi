@@ -1,163 +1,159 @@
 body {
-    cursor: url(http://media.tumblr.com/1831ed2495f38db81288c04f083d8fcb/tumblr_inline_mfn7vdwXjc1qid2nw.png),
-      url(http://media.tumblr.com/1831ed2495f38db81288c04f083d8fcb/tumblr_inline_mfn7vdwXjc1qid2nw.png),
-      auto;
-  }
-  #characterButton h1:hover {
-    color: rgb(72, 24, 114);
-  }
-  *:hover {
-    cursor: url(http://media.tumblr.com/1831ed2495f38db81288c04f083d8fcb/tumblr_inline_mfn7vdwXjc1qid2nw.png),
-      url(http://media.tumblr.com/1831ed2495f38db81288c04f083d8fcb/tumblr_inline_mfn7vdwXjc1qid2nw.png),
-      auto;
-  }
-  @font-face {
-    font-family: myFont;
-    src: url(Gazebo.otf);
-  }
+  cursor: url(http://media.tumblr.com/1831ed2495f38db81288c04f083d8fcb/tumblr_inline_mfn7vdwXjc1qid2nw.png),
+    url(http://media.tumblr.com/1831ed2495f38db81288c04f083d8fcb/tumblr_inline_mfn7vdwXjc1qid2nw.png),
+    auto;
+}
+#characterButton h1:hover {
+  color: rgb(72, 24, 114);
+}
+*:hover {
+  cursor: url(http://media.tumblr.com/1831ed2495f38db81288c04f083d8fcb/tumblr_inline_mfn7vdwXjc1qid2nw.png),
+    url(http://media.tumblr.com/1831ed2495f38db81288c04f083d8fcb/tumblr_inline_mfn7vdwXjc1qid2nw.png),
+    auto;
+}
+@font-face {
+  font-family: myFont;
+  src: url(Gazebo.otf);
+}
+#page {
+  text-align: center;
+  padding: 0;
+  margin-top: 59px;
+}
+#voicelines a {
+  color: white;
+}
+#characterButton h1,
+#artwork h1 {
+  color: white;
+  font-family: MyFont;
+  font-weight: 500;
+  text-align: right;
+  font-size: 30pt;
+  margin: auto;
+  text-align: center;
+}
+#characterButton p,
+#artwork p {
+  font-family: Quicksand;
+  color: white;
+  font-size: 15pt;
+  line-height: 18pt;
+  text-align: left;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  margin-left: 40px;
+}
+
+p.load {
+  margin-top: 50px;
+  text-align: center;
+}
+a.navbar-brand {
+  font-family: MyFont;
+  font-weight: 500;
+  text-align: center;
+  font-size: 40pt;
+  color: rgb(62, 62, 149);
+}
+
+#page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.banner {
+  background-color: rgb(48, 106, 176);
+  margin-top: 20px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  height: 300px;
+  width: 900px;
+  background-image: url(b1.jfif);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.box {
+  flex-direction: row;
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+.box2 {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+.artwork {
+  background-color: rgb(168, 160, 214);
+  margin-top: 50px;
+  height: 300px;
+  width: 400px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+}
+.quest {
+  background-color: rgb(136, 150, 255);
+  height: 120px;
+  width: 500px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+}
+.voicelines {
+  background-color: rgb(139, 180, 255);
+  height: 120px;
+  width: 500px;
+  border-radius: 50px;
+}
+.nav-item a:hover {
+  color: blueviolet;
+}
+.nav-item a {
+  font-size: 18pt;
+  font-family: quicksand;
+  letter-spacing: 2px;
+  margin: auto;
+  padding: auto;
+}
+
+h2 {
+  font-family: myFont;
+  font-size: 12pt;
+  color: rgb(66, 26, 88);
+}
+@media only screen and (max-width: 600px) {
   #page {
-    text-align: center;
-    padding: 0;
-    margin-top: 59px;
+    flex-direction: column;
+    display: flex;
   }
-  #voicelines a {
-    color: white;
-  }
-  #characterButton h1,
-  #artwork h1 {
-    color: white;
-    font-family: MyFont;
-    font-weight: 500;
-    text-align: right;
-    font-size: 30pt;
-    margin: auto;
-    text-align: center;
-  }
-  #characterButton p,
-  #artwork p {
-    font-family: Quicksand;
-    color: white;
-    font-size: 15pt;
-    line-height: 18pt;
-    text-align: left;
-    letter-spacing: 1px;
-    text-transform: capitalize;
-    margin-left: 40px;
-  }
-
-
-  p.load {
-    margin-top: 50px;
-    text-align: center;
-  }
-  a.navbar-brand {
-    font-family: MyFont;
-    font-weight: 500;
-    text-align: center;
-    font-size: 40pt;
-    color: rgb(62, 62, 149);
-  }
-
-
-  #page {
+  .box {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
   }
-  .banner {
-    background-color: rgb(48, 106, 176);
-    margin-top: 20px;
-    border-radius: 50px;
-    display: flex;
-    justify-content: center;
-    height: 300px;
-    width: 900px;
-    background-image: url(b1.jfif);
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  .box {
-    flex-direction: row;
-    display: flex;
-    gap: 20px;
-    margin-top: 20px;
-  }
-  .box2 {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
+  .quest,
+  .voicelines {
+    width: 300px;
+    height: 100px;
   }
   .artwork {
-    background-color: rgb(168, 160, 214);
-    margin-top: 50px;
-    height: 300px;
-    width: 400px;
-    border-radius: 50px;
-    margin-bottom: 20px;
+    height: auto;
+    width: auto;
   }
-  .quest {
-    background-color: rgb(136, 150, 255);
-    height: 120px;
-    width: 500px;
-    border-radius: 50px;
-    margin-bottom: 20px;
-  }
-  .voicelines {
-    background-color: rgb(139, 180, 255);
-    height: 120px;
-    width: 500px;
-    border-radius: 50px;
-  }
-  .nav-item a:hover {
-    color: blueviolet;
-  }
-  .nav-item a{
-    font-size: 18pt;
-    font-family: quicksand;
-    letter-spacing: 2px;
-    margin: auto;
-    padding: auto;
-  }
-
-
-
-  h2 {
-    font-family: myFont;
-    font-size: 12pt;
-    color: rgb(66, 26, 88);
-  }
-  @media only screen and (max-width: 600px) {
-    #page {
-      flex-direction: column;
-      display: flex;
-    }
-    .box {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
-    }
-    .quest, .voicelines{
-
-      width: 300px;
-      height: 100px;
-    }
-    .artwork{
-      height: 200px;
-      width: 200px;
-
-    }
-  }
- 
-  p {
-    font-size: 10pt;
-    line-height: 12pt;
-  }
-  .banner {
-    width: 90%;
-    margin: auto;
-  }
-  h1{
-    font-size: 15pt;
-  }
+}
+li {
+  list-style-type: none;
+}
+p {
+  font-size: 10pt;
+  line-height: 12pt;
+}
+.banner {
+  width: 90%;
+  margin: auto;
+}
+h1 {
+  font-size: 15pt;
+}
