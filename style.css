@@ -135,12 +135,14 @@ h2 {
   }
   .quest,
   .voicelines {
-    width: 300px;
-    height: 100px;
+    width: auto;
+    height: auto;
+    padding: 5px 10px;
   }
   .artwork {
     height: auto;
     width: auto;
+    padding: 5px 10px;
   }
 }
 li {
